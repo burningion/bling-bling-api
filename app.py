@@ -1,7 +1,10 @@
 from flask import Flask, request
 from PIL import Image
+from io import BytesIO
 
+import base64
 import uuid
+import re
 
 app = Flask(__name__)
 
@@ -10,7 +13,14 @@ def place_bling():
     if request.method == 'GET':
         return "You must POST a json Object in the following form: {\"image\": \"base64encodedimage\"}"
     else:
-        return "Image will be here!"
+        try:
+            image = request.json['image']
+            image_data = re.sub('^data:image/.+;base64', '', image)
+            im = Image.open(BytesIO(base64.b64decode(image_data)))
+            im.save('test.gif')
+            return "Image created!"
+        except:
+            return "Malformed image request!"
 
 @app.route('/')
 def hello_world():
