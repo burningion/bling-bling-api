@@ -17,7 +17,7 @@ def place_bling():
             image = request.json['image']
             image_data = re.sub('^data:image/.+;base64', '', image)
             im = Image.open(BytesIO(base64.b64decode(image_data)))
-            im.save('test.gif')
+            im.save('test.gif', save_all=True) # save_all necessary for animation
             return "Image created!"
         except:
             return "Malformed image request!"
