@@ -23,7 +23,7 @@ def place_bling():
         paster = Image.open('images/bling.gif')
         im.thumbnail((500, 500))
         spots = []
-        for i in range(10):
+        for i in range(spot_count):
             spots.append((random.randint(0,500), random.randint(0,500)))
         frames = []
         for frame in ImageSequence.Iterator(paster):

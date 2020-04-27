@@ -13,7 +13,7 @@ The JSON format itself is just two dictionaries that must be filled. They are:
 ```json
 {
   "spots": 30,
-  "image": "data:image/jpeg;base64,...yourimagehere..."
+  "image": "data:image/jpeg;base64,...yourimagedatahere..."
 }
 ```
 
