@@ -17,7 +17,7 @@ def place_bling():
     else:
         image = request.json['image']
         spot_count = request.json['spots']
-        
+
         image_data = re.sub('^data:image/.+;base64', '', image)
         im = Image.open(BytesIO(base64.b64decode(image_data)))
         paster = Image.open('images/bling.gif')
@@ -33,9 +33,9 @@ def place_bling():
             for spot in spots:
                 curr.paste(frame, spot, mask=frame)
             frames.append(curr)
-        frames[0].save('test.gif', save_all=True, append_images=frames[1:], loop=0) # save_all necessary for animation
+        frames[0].save('images/test.gif', save_all=True, append_images=frames[1:], loop=0) # save_all necessary for animation
         return "Image created!"
-        
+
 @app.route('/')
 def hello_world():
     return 'Hello, World!'
