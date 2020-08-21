@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bling-bling
+  labels:
+    app: bling-bling
+spec:
+  containers:
+    - image: ursuladd/bling-bling:latest
+      name: bling-bling
+      ports:
+        - containerPort: 5000
+          name: http
+          protocol: TCP
+      env:
+        - name: DD_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
