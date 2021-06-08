@@ -3,7 +3,7 @@ Flask==1.1.2
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
-Pillow==7.1.1
+Pillow==8.2.0
 uuid==1.30
 Werkzeug==1.0.1
 ddtrace==0.39.0
